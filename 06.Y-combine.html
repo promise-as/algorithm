@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Y-组合子 - 3星</title>
+</head>
+
+<body>
+  <script>
+    const y = function (le) {
+      return function (f) {
+        return f(f)
+      }(function (f) {
+        return le(
+          function (...x) {
+            return (f(f))(...x)
+          }
+        )
+      })
+    }
+    const curryY = func => y(
+      g => {
+        (...allArgs) => {
+          allArgs.length >= func.length ? func(...allArgs)
+          : (...args) => g(...allArgs, ...args)
+        }
+      }
+    )
+    const foo = curryY((a, b, c, d) => {
+      console.log(a, b, c, d);
+    })
+    foo(1)(2)(3)(4)
+  </script>
+</body>
+
+</html>
