@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>函数节流(另一种)-1星</title>
+</head>
+
+<body>
+
+  <script>
+    // 过滤掉重复的验证事件(用户输入停止后300ms触发验证)
+    /*
+    分析：
+      ---1--2--3---------4---5--6-------
+      ----------------3--------------6--
+                |300ms|        |300ms|
+    */
+   function throttle(func, delay = 300, I = null){
+     return (...arges) => {
+       clearInterval(I);
+       I = setTimeout(func.bind(null, ...args), delay);
+      // I = setTimeout((...args) => func(...args), delay)
+     }
+   }
+  </script>
+</body>
+
+</html>

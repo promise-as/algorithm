@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>数组展开-1星</title>
+</head>
+
+<body>
+  <script>
+    // 展开一个数组，数组最多维 [[1, 2], 3, [[4], 5]] => [1, 2, 3, 4, 5]
+    /*
+    分析：
+      对数组S = {a1, a2, a3, ... , an}, a的n项，函数F将数组展平
+      F(S) = F(a1) U F(a2) U ... U F(an)
+      F(ai) = ai || F(ai)  ai: 是数字，F(ai)是数组
+    */
+    // 数组展开（递归）
+    function flatten(arr) {
+      return [].concat(
+        // array.map(funciton(){})
+        ...arr.map(x => Array.isArray(x) ? flatten(x) : x)
+      );
+    }
+    console.log(flatten([[1, 2], 3, [[4], 5]]));
+  </script>
+</body>
+
+</html>
