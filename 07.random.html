@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>随机数</title>
+</head>
+
+<body>
+  <script>
+    // 生成20-30之间的随机整数
+    function random(num1, num2){
+      let val = Math.round(Math.random() * (num2 - num1) + num1);
+      return val;
+    }
+    console.log(random(20, 30));
+    
+  </script>
+</body>
+
+</html>

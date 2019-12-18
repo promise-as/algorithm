@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>一个使用的js函数库</title>
+</head>
+
+<body>
+  <script src="https://cdn.bootcss.com/ramda/0.25.0/ramda.min.js"></script>
+  <script>
+    // 两两元素配对 [[1, 'a'], [2, 'b'], [3, 'c']]
+    R.zip([1, 2, 3], ['a', 'b', 'c']);
+
+    // 数组展平
+    var f = R.flatten([1, 2, [3, 4], 5, [6, [7, 8, [9, [10, 11], 12]]]]);
+    // console.log(f);
+
+    // 插入分隔符
+    var i = R.intersperse('n', ['ba', 'a', 'a'])
+    console.log(i);
+    
+  </script>
+</body>
+
+</html>

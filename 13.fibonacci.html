@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>斐波纳契数列</title>
+</head>
+
+<body>
+  <script>
+    // 1 1 2 3 5 8 13 21 34 55 89 144
+    // 第n项的值，从0项 递归
+    function fibonacci(n) {
+      return n === 0 || n === 1 ? 1
+        : fibonacci(n - 1) + fibonacci(n - 2);
+    }
+    // console.log(fibonacci(4));
+
+    // for
+    function fibonacci2(n) {
+      let [a, b] = [0, 1]
+      for (var i = 0; i < n; i++) {
+        [a, b] = [b, a + b] // 左边是键，右边是值
+      }
+      return b
+    }
+    // console.log(fibonacci2(4));
+
+    // Array.reduce()
+    function fibonacci3(n) {
+      // return Array(n); // 数组的长度为n，值为empty
+      // return Array(n).fill(); // 数组的长度为n，值为undefined
+      // return [3, 5][1] // 取数组中下标为1的值，从0开始
+      return Array(n).fill()
+        .reduce(([a, b]) => { // reduce的第二个参数是currentIndex
+          return [b, a + b]
+        }, [0, 1])[1]
+    }
+    console.log(fibonacci3(4));
+  </script>
+</body>
+
+</html>

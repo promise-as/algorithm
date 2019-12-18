@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>子数组和整除</title>
+</head>
+
+<body>
+  <script>
+    // 写一个函数，给定一个数组，判断数中某一项，
+    // 或者任意多项的和，是否被一个整数整除。
+    // solve([3, 5, 8], 13) => true
+    // solve([3, 9], 15) => false
+    // solve([7, 8, 2], 7) => true
+    // solve([1, 2, 3], 6) => true
+
+    function solve(arr, N){
+      const s = new Set();
+      for(let i = 0; i <= arr.length; i++){
+        for(let j = i + 1; j <= arr.length; j++){
+          const remain = arr.slice(i, j).reduce(
+            (x, y) => x + y, 0
+          ) % N;
+          s.add(remain);
+        }
+      }
+      return s.has(0);
+    }
+    console.log(solve([1, 2, 3], 6));
+    
+  </script>
+</body>
+
+</html>

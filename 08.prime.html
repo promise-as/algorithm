@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>素数</title>
+</head>
+
+<body>
+  <script>
+    // 判断一个数是否是素数
+    function prime(n){
+      if(n <= 1) return false;
+      const N = Math.floor(Math.sqrt(n)); // 该数的平方根
+      let is_prime = true;
+      for(let i = 2; i <= N; i++){ // 该数如果可以整除该数平方根就不是素数
+        if(n % i === 0){
+          is_prime = false
+          break
+        }
+      }
+      return is_prime;
+    }
+    console.log(prime(10));
+    
+  </script>
+</body>
+
+</html>
