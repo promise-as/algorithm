@@ -10,13 +10,17 @@
 
 <body>
   <script>
-    function clone(obj){
+    function clone(obj) {
+      if (obj == null || typeof obj !== 'object') return obj;
+      // 预防 类 的一下属性或者方法写在constructor()里
       const newObj = new obj.constructor();
-
+      for (let key in Object.getOwnPropertyDescriptor(obj)) {
+        newObj[key] = clone(obj[key])
+      }
       return newObj;
     }
     console.log(clone({}));
-    
+
   </script>
 </body>
 
